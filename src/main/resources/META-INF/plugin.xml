@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>dk.lost_world.Dictionary</id>
     <name>Dictionary</name>
-    <vendor email="olivernybroe@gmail.com" url="http://www.yourcompany.com">Lost-World</vendor>
+    <vendor email="olivernybroe@gmail.com" url="https://github.com/olivernybroe/intellij-Dictionary">Lost-World</vendor>
 
     <description><![CDATA[
     Plugin for having a shared dictionary for all members of your project. <br>
