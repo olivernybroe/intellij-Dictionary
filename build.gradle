@@ -18,10 +18,10 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version 'IC-2016.3'
+    version 'IC-2018.3'
 }
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      First edition of the plugin.<br>
+    """
 }

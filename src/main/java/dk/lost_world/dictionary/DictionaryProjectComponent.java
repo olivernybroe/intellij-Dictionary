@@ -7,6 +7,7 @@ import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.spellchecker.settings.SpellCheckerSettings;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -40,5 +41,26 @@ public class DictionaryProjectComponent implements ProjectComponent {
         paths.addAll(
             filePaths.stream().filter(path -> !paths.contains(path)).collect(Collectors.toList())
         );
+    }
+
+    @Override
+    public void projectClosed() {
+
+    }
+
+    @Override
+    public void initComponent() {
+
+    }
+
+    @Override
+    public void disposeComponent() {
+
+    }
+
+    @NotNull
+    @Override
+    public String getComponentName() {
+        return "Dictionary";
     }
 }
