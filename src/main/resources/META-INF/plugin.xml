@@ -1,0 +1,23 @@
+<idea-plugin>
+    <id>dk.lost_world.Dictionary</id>
+    <name>Dictionary</name>
+    <vendor email="olivernybroe@gmail.com" url="http://www.yourcompany.com">Lost-World</vendor>
+
+    <description><![CDATA[
+    Plugin for having a shared dictionary for all members of your project. <br>
+    <br>
+    It will automatically find any <code>project.dic</code> files and add them
+    to the list of dictionaries. <br>
+    <br>
+    It will also search packages for dictionary files and add them to our list of dictionaries.
+
+    ]]></description>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <project-components>
+        <component>
+            <implementation-class>dk.lost_world.dictionary.DictionaryProjectComponent</implementation-class>
+        </component>
+    </project-components>
+</idea-plugin>
