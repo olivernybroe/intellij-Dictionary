@@ -2,16 +2,7 @@
     <id>dk.lost_world.Dictionary</id>
     <name>Dictionary</name>
     <vendor email="olivernybroe@gmail.com" url="https://github.com/olivernybroe/intellij-Dictionary">Lost-World</vendor>
-
-    <description><![CDATA[
-    Plugin for having a shared dictionary for all members of your project. <br>
-    <br>
-    It will automatically find any <code>project.dic</code> files and add them
-    to the list of dictionaries. <br>
-    <br>
-    It will also search packages for dictionary files and add them to our list of dictionaries.
-
-    ]]></description>
+    <idea-version since-build="181.2784.17"/>
 
     <depends>com.intellij.modules.lang</depends>
 

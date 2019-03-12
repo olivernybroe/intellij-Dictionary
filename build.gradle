@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'dk.lost_world'
-version '1.0-SNAPSHOT'
+version '0.1'
 
 sourceCompatibility = 1.8
 
@@ -18,10 +18,29 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version 'IC-2018.3'
+    pluginName 'Dictionary'
+    version '181.2784.17'
+    type 'IC'
+    updateSinceUntilBuild false
+    downloadSources true
 }
 patchPluginXml {
+    version 0.1
+    pluginDescription """
+    Plugin for having a shared dictionary for all members of your project. <br>
+    <br>
+    It will automatically find any <code>project.dic</code> files and add them
+    to the list of dictionaries. <br>
+    <br>
+    It will also search packages for dictionary files and add them to our list of dictionaries.
+    """
+    sinceBuild '181.2784.17'
+
     changeNotes """
       First edition of the plugin.<br>
     """
+}
+
+publishPlugin {
+    token intellijPublishToken
 }

@@ -1,5 +1,8 @@
 package dk.lost_world.dictionary;
 
+import com.intellij.notification.Notification;
+import com.intellij.notification.NotificationType;
+import com.intellij.notification.Notifications;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -31,16 +34,30 @@ public class DictionaryProjectComponent implements ProjectComponent {
         GlobalSearchScope scope = GlobalSearchScope.allScope(project);
 
         //FilenameIndex.getAllFilesByExt(project, "dic", scope).forEach(System.out::println);
-        // Get all files named project.dic.
+        // Get all files named project.dic and filter away the ones already added
         Collection<String> filePaths = FilenameIndex
             .getVirtualFilesByName(project, "project.dic", false, scope)
-            .stream().map(VirtualFile::getPath).collect(Collectors.toList());
+            .stream()
+            .map(VirtualFile::getPath)
+            .filter(path -> !paths.contains(path))
+            .collect(Collectors.toList());
 
+        if (!filePaths.isEmpty()) {
+            Notifications.Bus.notify(
+                new Notification(
+                    "Dictionary register",
+                    "Found dictionaries",
+                    "Registered the following dictionaries ["+ String.join("", filePaths)+"]",
+                    NotificationType.INFORMATION
+                ),
+                project
+            );
 
-        // Add the file paths to the settings and filter away the onces that always is there.
-        paths.addAll(
-            filePaths.stream().filter(path -> !paths.contains(path)).collect(Collectors.toList())
-        );
+            // Add the file paths to the settings and filter away the onces that always is there.
+            paths.addAll(
+                filePaths
+            );
+        }
     }
 
     @Override
