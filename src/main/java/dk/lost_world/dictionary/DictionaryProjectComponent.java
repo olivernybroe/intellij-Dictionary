@@ -9,22 +9,18 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class DictionaryProjectComponent implements ProjectComponent {
-
     private Project project;
 
-    @Contract(pure = true)
     public DictionaryProjectComponent(Project project) {
         this.project = project;
     }
 
     @Override
     public void projectOpened() {
-
-
         Dictionary dictionary = new Dictionary(project);
 
-        dictionary.registerAndNotify(FilenameIndex
-            .getVirtualFilesByName(
+        dictionary.registerAndNotify(
+            FilenameIndex.getVirtualFilesByName(
                 project,
                 "project.dic",
                 false,
@@ -32,7 +28,9 @@ public class DictionaryProjectComponent implements ProjectComponent {
             )
         );
 
-        VirtualFileManager.getInstance().addVirtualFileListener(new DictionaryFileListener(dictionary));
+        VirtualFileManager.getInstance().addVirtualFileListener(
+            new DictionaryFileListener(dictionary)
+        );
     }
 
     @Override

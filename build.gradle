@@ -21,21 +21,21 @@ intellij {
     pluginName 'Dictionary'
     version '181.2784.17'
     type 'IC'
-    updateSinceUntilBuild false
     downloadSources true
 }
+
 patchPluginXml {
+    sinceBuild intellij.version
+    untilBuild null
     version project.version
     pluginDescription """
-    Plugin for having a shared dictionary for all members of your project. <br>
-    <br>
-    It will automatically find any <code>project.dic</code> files and add them
-    to the list of dictionaries. <br>
-    <br>
-    It will also search packages for dictionary files and add them to our list of dictionaries.
+Plugin for having a shared dictionary for all members of your project. <br>
+<br>
+It will automatically find any <code>project.dic</code> files and add them
+to the list of dictionaries. <br>
+<br>
+It will also search packages for dictionary files and add them to our list of dictionaries.
     """
-    sinceBuild '181.2784.17'
-
     changeNotes """
 <p>0.2</p>
 <ul>

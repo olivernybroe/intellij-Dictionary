@@ -1,8 +1,7 @@
 <idea-plugin>
     <id>dk.lost_world.Dictionary</id>
     <name>Dictionary</name>
-    <vendor email="olivernybroe@gmail.com" url="https://github.com/olivernybroe/intellij-Dictionary">Lost-World</vendor>
-    <idea-version since-build="181.2784.17"/>
+    <vendor email="olivernybroe@gmail.com" url="https://github.com/olivernybroe/intellij-Dictionary">GitHub</vendor>
 
     <depends>com.intellij.modules.lang</depends>
 

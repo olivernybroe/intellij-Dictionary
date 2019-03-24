@@ -10,12 +10,6 @@ public class DictionaryFileListener implements VirtualFileListener {
         this.dictionary = dictionary;
     }
 
-    /**
-     * Fired when a virtual file is renamed from within IDEA, or its writable status is changed.
-     * For files renamed externally, {@link #fileCreated} and {@link #fileDeleted} events will be fired.
-     *
-     * @param event the event object containing information about the change.
-     */
     @Override
     public void propertyChanged(@NotNull VirtualFilePropertyEvent event) {
         if(event.getPropertyName().equals(VirtualFile.PROP_NAME)) {
@@ -29,14 +23,8 @@ public class DictionaryFileListener implements VirtualFileListener {
                 dictionary.removeAndNotify(file);
             }
         }
-
     }
 
-    /**
-     * Fired when a virtual file is created. This event is not fired for files discovered during initial VFS initialization.
-     *
-     * @param event the event object containing information about the change.
-     */
     @Override
     public void fileCreated(@NotNull VirtualFileEvent event) {
         if(event.getFileName().equals("project.dic")) {
@@ -44,11 +32,6 @@ public class DictionaryFileListener implements VirtualFileListener {
         }
     }
 
-    /**
-     * Fired when a virtual file is deleted.
-     *
-     * @param event the event object containing information about the change.
-     */
     @Override
     public void fileDeleted(@NotNull VirtualFileEvent event) {
         if(event.getFileName().equals("project.dic")) {
@@ -56,11 +39,6 @@ public class DictionaryFileListener implements VirtualFileListener {
         }
     }
 
-    /**
-     * Fired when a virtual file is moved from within IDEA.
-     *
-     * @param event the event object containing information about the change.
-     */
     @Override
     public void fileMoved(@NotNull VirtualFileMoveEvent event) {
         dictionary.moveAndNotify(
@@ -69,11 +47,6 @@ public class DictionaryFileListener implements VirtualFileListener {
         );
     }
 
-    /**
-     * Fired when a virtual file is copied from within IDEA.
-     *
-     * @param event the event object containing information about the change.
-     */
     @Override
     public void fileCopied(@NotNull VirtualFileCopyEvent event) {
         if(event.getFileName().equals("project.dic")) {
